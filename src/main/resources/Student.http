@@ -1,0 +1,85 @@
+### create student
+POST localhost:8080/student
+Content-Type:  application/json
+
+{
+  "name": "Doniyor",
+  "surname": "Toshpulatov",
+  "age": 19,
+  "level": 2,
+  "gender": "Male"
+}
+### Get All student
+GET localhost:8080/student
+### Get by id Student
+GET  localhost:8080/student/1
+### update by id student
+PUT localhost:8080/student/4
+Content-Type: application/json
+
+{
+  "name": "AbduMalik",
+  "surname": "Primov",
+  "age": 20,
+  "level":3,
+  "gender": "Male"
+}
+
+### Delete by id  student
+POST localhost:8080/student/3
+
+### get by name
+PUT localhost:8080/student/name
+Content-Type: application/json
+
+{
+  "name": "Doniyor"
+}
+
+### get by surname
+PUT localhost:8080/student/surname
+Content-Type: application/json
+
+{
+  "surname": "Toshpulatov"
+}
+
+### get by Gender
+PUT localhost:8080/student/gender
+Content-Type: application/json
+
+{
+  "gender": "Male"
+}
+
+### get by level
+PUT localhost:8080/student/level
+Content-Type: application/json
+
+{
+  "level": 2
+}
+
+### get by age
+PUT localhost:8080/student/age
+Content-Type: application/json
+
+{
+  "age": 19
+}
+### get by date
+PUT localhost:8080/student/date
+Content-Type: application/json
+
+{
+  "createdDate": "2022-11-21"
+}
+### get by date between
+GET localhost:8080/student/between?from=2022-11-21&to=2022-11-22
+### get pagination
+GET localhost:8080/student/page?page=0&size=5
+### get page by  sort created date gender
+GET localhost:8080/student/page/created?page=0&size=2&gender=Male
+### get page sort level
+GET localhost:8080/student/page/level?page=0&size=1&level=2
+###

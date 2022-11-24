@@ -1,0 +1,9 @@
+### create
+POST  localhost:8080/student/course
+Content-Type: application/json
+
+{
+  "student": 2,
+  "course": 2,
+  "mark": 5
+}

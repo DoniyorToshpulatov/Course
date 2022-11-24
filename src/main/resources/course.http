@@ -1,0 +1,50 @@
+POST localhost:8080/course
+Content-Type: application/json
+
+{
+  "name": "Java",
+  "price": 1000,
+  "duration": 9
+}
+###
+POST localhost:8080/course
+Content-Type: application/json
+
+{
+"name": "C++",
+"price": 1100,
+"duration": 6
+}
+### get by id
+GET localhost:8080/course/1
+### get by name
+GET  localhost:8080/course/name?name=Java
+### get by price
+GET localhost:8080/course/price?price=1000
+### delete by id
+DELETE localhost:8080/course/delete?id=1
+### update by id
+PUT localhost:8080/course/update?id=2
+Content-Type: application/json
+
+{
+  "name": "Java",
+  "price": 1300,
+  "duration": 7
+}
+### get by duration
+GET  localhost:8080/course/duration?duration=6
+### get by between price
+GET localhost:8080/course/price/between?from=1000.0&to=1200.0
+### get by between created date
+GET localhost:8080/course/between/createdDate?from=2022-11-21&to=2022-11-23
+### get all
+GET localhost:8080/course
+### get by page
+GET localhost:8080/course/pagination?page=0&size=2
+### get by sort
+GET localhost:8080/course/paginationSort?page=0&size=2
+### get by page sort price
+GET localhost:8080/course/pagination/price?page=0&size=2&price=1000
+### get by page between
+GET localhost:8080/course/pagination/price/between?page=0&size=2&from=1000&to=1200
