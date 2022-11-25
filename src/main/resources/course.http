@@ -35,7 +35,7 @@ Content-Type: application/json
 ### get by duration
 GET  localhost:8080/course/duration?duration=6
 ### get by between price
-GET localhost:8080/course/price/between?from=1000.0&to=1200.0
+GET localhost:8080/course/price/between?from=1000.0&to=1400.0
 ### get by between created date
 GET localhost:8080/course/between/createdDate?from=2022-11-21&to=2022-11-23
 ### get all

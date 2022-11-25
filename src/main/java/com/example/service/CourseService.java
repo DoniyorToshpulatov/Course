@@ -88,7 +88,7 @@ public class CourseService {
     }
 
     public List<CourseDTO> getByName(String name) {
-        List<CourseEntity> courseEntities = courseRepository.findByName(name);
+        List<CourseEntity> courseEntities = courseRepository.findByName2(name);
         List<CourseDTO> courseDTOS = new LinkedList<>();
         for (CourseEntity course : courseEntities) {
             CourseDTO courseDTO = toDto(course);
@@ -98,7 +98,7 @@ public class CourseService {
     }
 
     public List<CourseDTO> getByPrice(Double price) {
-        List<CourseEntity> courseEntities = courseRepository.findByPrice(price);
+        List<CourseEntity> courseEntities = courseRepository.findByPrice2(price);
         List<CourseDTO> courseDTOS = new LinkedList<>();
         for (CourseEntity course : courseEntities) {
             CourseDTO courseDTO = toDto(course);
@@ -108,7 +108,7 @@ public class CourseService {
     }
 
     public List<CourseDTO> getByDuration(Integer duration) {
-        List<CourseEntity> courseEntities = courseRepository.findByDuration(duration);
+        List<CourseEntity> courseEntities = courseRepository.findByDuration2(duration);
         List<CourseDTO> courseDTOS = new LinkedList<>();
         for (CourseEntity course : courseEntities) {
             CourseDTO courseDTO = toDto(course);
@@ -118,7 +118,7 @@ public class CourseService {
     }
 
     public List<CourseDTO> getBetweenByPrice(Double from, Double to) {
-        List<CourseEntity> courseEntityList = courseRepository.findByPriceBetween(from, to);
+        List<CourseEntity> courseEntityList = courseRepository.findByPriceBetween2(from, to);
         List<CourseDTO> courseDTOList = new LinkedList<>();
         for (CourseEntity course : courseEntityList) {
             CourseDTO courseDTO = toDto(course);
@@ -128,7 +128,7 @@ public class CourseService {
     }
 
     public List<CourseDTO> getBetweenCreatedDate(LocalDate from, LocalDate to) {
-        List<CourseEntity> courseEntityList = courseRepository.findByCreatedDateBetween(from, to);
+        List<CourseEntity> courseEntityList = courseRepository.findByCreatedDateBetween2(from, to);
         List<CourseDTO> courseDTOList = new LinkedList<>();
         for (CourseEntity course : courseEntityList) {
             CourseDTO courseDTO = toDto(course);
@@ -152,7 +152,7 @@ public class CourseService {
     }
     public Page<CourseDTO> getAllPageSortCreatedDate(Integer page, Integer size) {
         Pageable pageable = PageRequest.of(page, size);
-        Page<CourseEntity> pageObj = courseRepository.findByOrderByCreatedDate(pageable);
+        Page<CourseEntity> pageObj = courseRepository.findByOrderByCreatedDate2(pageable);
         List<CourseEntity> courseEntityList = pageObj.getContent();
         Long totalElements = pageObj.getTotalElements();
         List<CourseDTO> courseDTOS = new LinkedList<>();
@@ -165,7 +165,7 @@ public class CourseService {
     }
     public Page<CourseDTO> getAllPageSortPriceBetween(Integer page, Integer size,Double from,Double to) {
         Pageable pageable = PageRequest.of(page, size);
-        Page<CourseEntity> pageObj = courseRepository.findByPriceBetweenOrderByCreatedDate(from,to,pageable);
+        Page<CourseEntity> pageObj = courseRepository.findByPriceBetweenOrderByCreatedDateAS(from,to,pageable);
         List<CourseEntity> courseEntityList = pageObj.getContent();
         Long totalElements = pageObj.getTotalElements();
         List<CourseDTO> courseDTOS = new LinkedList<>();
@@ -178,7 +178,7 @@ public class CourseService {
     }
     public Page<CourseDTO> getAllPageSortPrice(Integer page, Integer size,Double price) {
         Pageable pageable = PageRequest.of(page, size);
-        Page<CourseEntity> pageObj = courseRepository.findByPriceOrderByCreatedDate(price,pageable);
+        Page<CourseEntity> pageObj = courseRepository.getPrice(price,pageable);
         List<CourseEntity> courseEntityList = pageObj.getContent();
         Long totalElements = pageObj.getTotalElements();
         List<CourseDTO> courseDTOS = new LinkedList<>();
